@@ -9,17 +9,24 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "highlight": "^0.2.4",
+    "bootstrap": "^4.3.1",
     "highlight.js": "^9.15.6",
+    "lodash": "^4.17.11",
     "markdown-it": "^8.4.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "showdown": "^1.9.0"
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-react": "^7.0.0",
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "marked": "^0.6.1",
     "parcel-bundler": "^1.12.2"
   }
 }
