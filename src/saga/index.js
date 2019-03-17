@@ -11,7 +11,8 @@ import types from '../type';
 //    }
 // }
 
-function* showExample() {
+function* showExample(action) {
+  console.log(action);
   yield put({type: types.SHOW_EXAMPLE_BOOTSTRAP});
 }
 
