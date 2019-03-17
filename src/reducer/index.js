@@ -30,6 +30,12 @@ let reducer = (state = initState, action) => {
         current: action.payload
       };
       break;
+    case types.SET_DOC_NAME:
+      return {
+        ...state,
+        docName: action.payload
+      };
+      break;
     case types.TOGGLE_SIDEBAR:
       return {
         ...state,

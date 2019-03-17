@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import 'highlight.js/styles/github.css';
 
-import { setMarkdown } from '../../action'
+import { setMarkdown, setDocName } from '../../action'
 import './index.css';
 
 let md = MarkdownIt({
@@ -66,6 +66,7 @@ class Markdown extends Component {
     this.setState({
       docName: e.target.value
     });
+    this.props.setDocName(e.target.value);
   }
 
   render() {
@@ -96,6 +97,7 @@ export default connect(
     current: state.current,
     docName: state.docName
   }), {
-    setMarkdown: setMarkdown
+    setMarkdown,
+    setDocName
   }
 )(Markdown);
