@@ -15,6 +15,12 @@ let reducer = (state = initState, action) => {
         current: state.examples.React
       };
       break;
+    case types.SET_MARKDOWN:
+      return {
+        ...state,
+        current: action.payload
+      };
+      break;
     default:
       return state;
   }

@@ -17,6 +17,7 @@ class Header extends Component {
   }
 
   render() {
+    console.log();
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
         <a className="navbar-brand" href="#">Markdown</a>
@@ -31,18 +32,22 @@ class Header extends Component {
             </li>
           </ul>
         </div>
-        <ul className="navbar-nav">
-          <li className="nav-item">
-            <a className="nav-link" onClick={this.print}>Save as PDF</a>
-          </li>
-        </ul>
+        {this.props.current &&
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a className="nav-link" onClick={this.print}>Save as PDF</a>
+            </li>
+          </ul>
+        }
       </nav>
     );
   }
 }
 
 export default connect(
-  null, {
+  (state) => ({
+    current: state.current
+  }), {
     showExample
   }
 )(Header);
