@@ -1,5 +1,5 @@
 import initState from '../store/initState';
-import types from '../reducer';
+import types from '../type';
 
 let reducer = (state = initState, action) => {
   switch (action.type) {

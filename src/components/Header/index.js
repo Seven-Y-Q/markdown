@@ -9,7 +9,7 @@ class Header extends Component {
   }
 
   onSelect = (item) => {
-    this.props.showExample({type: 'SHOW_EXAMPLE_' + item.toUpperCase()})
+    this.props.showExample({key: item})
   }
 
   print = () => {
