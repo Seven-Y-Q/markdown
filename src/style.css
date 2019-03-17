@@ -15,3 +15,15 @@ body,
 #app {
   height: 100%;
 }
+
+#app nav,
+#app .container-fluid {
+  position: relative;
+  left: 0;
+  transition: all .25s ease-in-out;
+}
+
+#app.open-sidebar nav,
+#app.open-sidebar .container-fluid {
+  left: 270px;
+}

@@ -1,11 +1,18 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import Dropdown from '../Dropdown';
-import { showExample } from '../../action';
+import { showExample, toggleSidebar } from '../../action';
+import './index.css';
 
 class Header extends Component {
   constructor(props) {
     super(props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.isSidebarOpen !== this.props.isSidebarOpen) {
+      document.querySelector('#app').classList.toggle('open-sidebar');
+    }
   }
 
   onSelect = (item) => {
@@ -16,10 +23,17 @@ class Header extends Component {
     window.print();
   }
 
+  onToggle = () => {
+    this.props.toggleSidebar();
+  }
+
   render() {
     console.log();
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
+        <button className="navbar-toggler" type="button" onClick={this.onToggle}>
+          <span className="navbar-toggler-icon"></span>
+        </button>
         <a className="navbar-brand" href="#">Markdown</a>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
@@ -46,8 +60,10 @@ class Header extends Component {
 
 export default connect(
   (state) => ({
-    current: state.current
+    current: state.current,
+    isSidebarOpen: state.isSidebarOpen
   }), {
-    showExample
+    showExample,
+    toggleSidebar
   }
 )(Header);

@@ -1,6 +1,10 @@
 .container-fluid  {
-  display: flex;
   padding: 0;
+}
+
+.container-fluid .main {
+  display: flex;
+  height: calc(100% - 89px);
 }
 
 .editor,
@@ -9,7 +13,6 @@
 }
 
 .preview {
-  padding: 10px;
   box-sizing: border-box;
   height: 100%;
   overflow-y: scroll;
@@ -27,8 +30,38 @@
   height: calc(100% - 56px);
 }
 
+.doc-name {
+  background-color: #fff;
+}
+
+.container-fluid .title {
+  color: #a0aabf;
+  font-size: 12px;
+  padding: 10px;
+  background-color: #fff;
+}
+
+.main .title {
+  padding: 0;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.main .title span {
+  padding: 10px;
+  display: inline-block;
+}
+
+.doc-name input {
+  width: 100%;
+  padding: 10px;
+  font-size: 20px;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #e8e8e8;
+}
+
 textarea {
-  height: 100%;
+  height: calc(100% - 39px);
 }
 
 img {

@@ -9,3 +9,8 @@ export const setMarkdown = payload => ({
   type: types.SET_MARKDOWN,
   payload
 })
+
+export const toggleSidebar = payload => ({
+  type: types.TOGGLE_SIDEBAR,
+  payload
+})

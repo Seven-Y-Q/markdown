@@ -1,0 +1,26 @@
+.sidebar {
+  width: 270px;
+  background-color: #2b2f36;
+  height: 100%;
+  position: absolute;
+  color: #fff;
+}
+
+.sidebar-title {
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidebar button {
+  width: 240px;
+  margin: 0 auto;
+  display: block;
+  color: #fff;
+  background-color: #35d7bb;
+}
+
+.sidebar button:hover {
+  color: #fff;
+}

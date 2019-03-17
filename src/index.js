@@ -4,6 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import 'bootstrap/dist/css/bootstrap.css';
 
+import Sidebar from './components/Sidebar';
 import Markdown from './components/Markdown';
 import Header from './components/Header';
 import store from './store';
@@ -15,6 +16,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Fragment>
+          <Sidebar />
           <Header />
           <Markdown />
         </Fragment>

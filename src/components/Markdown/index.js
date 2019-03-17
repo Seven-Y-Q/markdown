@@ -6,7 +6,7 @@ import _ from 'lodash';
 import 'highlight.js/styles/github.css';
 
 import { setMarkdown } from '../../action'
-import './Markdown.css';
+import './index.css';
 
 let md = MarkdownIt({
   highlight: function (str, lang) {
@@ -60,11 +60,19 @@ class Markdown extends Component {
     return (
       <Fragment>
         <div className="container-fluid">
-          <div className="editor">
-            <textarea value={this.state.value} onChange={this.onChange} />
+          <div className="doc-name">
+            <div className="title">DOCUMENT NAME</div>
+            <input placeholder="please input your docment name" />
           </div>
-          <div className="preview">
-            <div dangerouslySetInnerHTML={this.state.html}/>
+          <div className="main">
+            <div className="editor">
+              <div className="title"><span>Markdown Editor</span></div>
+              <textarea value={this.state.value} onChange={this.onChange} />
+            </div>
+            <div className="preview">
+              <div className="title"><span>Preview</span></div>
+              <div dangerouslySetInnerHTML={this.state.html}/>
+            </div>
           </div>
         </div>
       </Fragment>);

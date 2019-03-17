@@ -21,6 +21,12 @@ let reducer = (state = initState, action) => {
         current: action.payload
       };
       break;
+    case types.TOGGLE_SIDEBAR:
+      return {
+        ...state,
+        isSidebarOpen: !state.isSidebarOpen
+      };
+      break;
     default:
       return state;
   }
