@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-const bootstrapMD = fs.readFileSync(__dirname + '/bootstrap.txt', 'utf8');
+const bootstrapMD = fs.readFileSync(__dirname + '/bootstrap.md', 'utf8');
 export default {
   current: '',
   examples: {

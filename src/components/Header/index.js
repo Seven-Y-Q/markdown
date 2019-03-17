@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import Dropdown from '../Dropdown';
+import { showExample } from '../../action';
 
 class Header extends Component {
   constructor(props) {
@@ -8,7 +9,7 @@ class Header extends Component {
   }
 
   onSelect = (item) => {
-    this.props.dispatch({type: 'SHOW_EXAMPLE_' + item.toUpperCase()})
+    this.props.showExample({type: 'SHOW_EXAMPLE_' + item.toUpperCase()})
   }
 
   print = () => {
@@ -40,4 +41,8 @@ class Header extends Component {
   }
 }
 
-export default connect()(Header);
+export default connect(
+  null, {
+    showExample
+  }
+)(Header);
