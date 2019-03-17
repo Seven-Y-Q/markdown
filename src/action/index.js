@@ -14,3 +14,8 @@ export const toggleSidebar = payload => ({
   type: types.TOGGLE_SIDEBAR,
   payload
 })
+
+export const newDocment = payload => ({
+  type: types.NEW_DOC,
+  payload
+})

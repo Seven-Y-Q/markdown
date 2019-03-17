@@ -36,6 +36,14 @@ let reducer = (state = initState, action) => {
         isSidebarOpen: !state.isSidebarOpen
       };
       break;
+    case types.NEW_DOC:
+      return {
+        ...state,
+        isSidebarOpen: false,
+        current: '',
+        docName: ''
+      };
+      break;
     default:
       return state;
   }
