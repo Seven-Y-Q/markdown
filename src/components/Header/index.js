@@ -37,7 +37,7 @@ class Header extends Component {
         <a className="navbar-brand" href="#">Markdown</a>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            <Dropdown type="link" name="Examples" options={['Bootstrap', 'React']} onSelect={this.onSelect} />
+            <Dropdown type="link" name="Examples" options={['Bootstrap', 'React', 'Vue']} onSelect={this.onSelect} />
             <li className="nav-item">
               <a className="nav-link" href="#">Features</a>
             </li>

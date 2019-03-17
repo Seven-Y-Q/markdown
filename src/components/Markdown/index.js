@@ -29,6 +29,7 @@ class Markdown extends Component {
     super(props);
     this.state = {
       value: '',
+      docName: '',
       html: {
         __html: ''
       }
@@ -44,6 +45,11 @@ class Markdown extends Component {
         }
       })
     }
+    if (nextProps.docName !== this.props.docName) {
+      this.setState({
+        docName: nextProps.docName
+      })
+    }
   }
 
   onChange = (e) => {
@@ -56,13 +62,19 @@ class Markdown extends Component {
     this.props.setMarkdown(e.target.value);
   }
 
+  onNameChange = (e) => {
+    this.setState({
+      docName: e.target.value
+    });
+  }
+
   render() {
     return (
       <Fragment>
         <div className="container-fluid">
           <div className="doc-name">
             <div className="title">DOCUMENT NAME</div>
-            <input placeholder="please input your docment name" />
+            <input placeholder="please input your docment name" value={this.state.docName} onChange={this.onNameChange} />
           </div>
           <div className="main">
             <div className="editor">
@@ -81,7 +93,8 @@ class Markdown extends Component {
 
 export default connect(
   (state) => ({
-    current: state.current
+    current: state.current,
+    docName: state.docName
   }), {
     setMarkdown: setMarkdown
   }

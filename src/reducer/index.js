@@ -6,13 +6,22 @@ let reducer = (state = initState, action) => {
     case types.SHOW_EXAMPLE_BOOTSTRAP:
       return {
         ...state,
-        current: state.examples.Bootstrap
+        current: state.examples.Bootstrap.content,
+        docName: 'Bootstrap.md'
       };
       break;
     case types.SHOW_EXAMPLE_REACT:
       return {
         ...state,
-        current: state.examples.React
+        current: state.examples.React.content,
+        docName: 'React.md'
+      };
+      break;
+    case types.SHOW_EXAMPLE_VUE:
+      return {
+        ...state,
+        current: state.examples.Vue.content,
+        docName: 'Vue.md'
       };
       break;
     case types.SET_MARKDOWN:
