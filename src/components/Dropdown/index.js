@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import OutsideHandleClick from '../OutsideHandleClick';
 
 class Dropdown extends Component {
   constructor(props) {
@@ -8,16 +9,6 @@ class Dropdown extends Component {
       isShow: false
     };
     this.myRef = React.createRef();
-  }
-
-  componentDidMount() {
-    window.addEventListener('click', (e) => {
-      if(!this.myRef.current.contains(e.target)) {
-        this.setState({
-          isShow: false
-        })
-      }
-    })
   }
 
   onToggleDropdown = () => {
@@ -30,12 +21,18 @@ class Dropdown extends Component {
     this.props.onSelect(item);
   }
 
+  handleOutsideClick = () => {
+    this.setState({
+      isShow: false
+    })
+  }
+
   render() {
     const { type, name, options } = this.props;
     const { isShow } = this.state;
     let Tag = type === 'link' ? 'a' : 'button';
     return (
-      <div ref={this.myRef}>
+      <OutsideHandleClick handleOutsideClick={this.handleOutsideClick}>
         <div className={(type === 'link' && 'nav-item ') + 'dropdown' + (isShow ? ' show' : '')} onClick={this.onToggleDropdown}>
           <Tag className={(type === 'link' && 'nav-link ') + 'dropdown-toggle'}>
             {name}
@@ -44,7 +41,7 @@ class Dropdown extends Component {
             {options.map((item, index) => <a className="dropdown-item" key={index} onClick={this.onSelect(item)}>{item}</a>)}
           </div>
         </div>
-      </div>
+      </OutsideHandleClick>
     );
   }
 }
