@@ -4,7 +4,8 @@ import reducer from '../reducer';
 import saga from '../saga';
 
 const sagaMiddleware = createSagaMiddleware()
-const store = createStore(reducer, compose(applyMiddleware(sagaMiddleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const devTools = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__() : null
+const store = createStore(reducer, compose(applyMiddleware(sagaMiddleware), devTools));
 sagaMiddleware.run(saga);
 
 export default store;
