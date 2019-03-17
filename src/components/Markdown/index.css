@@ -96,7 +96,10 @@ mark,
 }
 
 @media print {
-  .editor {
+  .editor,
+  .sidebar,
+  .doc-name,
+  .title {
     display: none
   }
 
