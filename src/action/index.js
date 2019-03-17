@@ -24,3 +24,18 @@ export const newDocment = payload => ({
   type: types.NEW_DOC,
   payload
 });
+
+export const saveDocment = payload => ({
+  type: types.SAVE_DOC,
+  payload
+});
+
+export const getAllDocments = payload => ({
+  type: types.GET_ALL_DOCS,
+  payload
+});
+
+export const getDocment = payload => ({
+  type: types.GET_DOC,
+  payload
+});

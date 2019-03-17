@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import _ from 'lodash';
 import 'highlight.js/styles/github.css';
 
-import { setMarkdown, setDocName } from '../../action'
+import { setMarkdown, setDocName, saveDocment } from '../../action'
 import './index.css';
 
 let md = MarkdownIt({
@@ -69,12 +69,37 @@ class Markdown extends Component {
     this.props.setDocName(e.target.value);
   }
 
+  onSave = () => {
+
+    const { db, current, docName, saveDocment } = this.props;
+    saveDocment();
+    // db.put({
+    //   _id: docName,
+    //   docName,
+    //   content: current
+    // }).then(() => {
+    //   console.log('save successfully');
+    // });
+    //
+    // db.allDocs({
+    //   include_docs: true
+    // }).then(function (result) {
+    //   console.log(result);
+    // }).catch(function (err) {
+    //   console.log(err);
+    // });
+  }
+
   render() {
+    const { current, docName } = this.props;
     return (
       <Fragment>
         <div className="container-fluid">
           <div className="doc-name">
-            <div className="title">DOCUMENT NAME</div>
+            <div className="title justify-content-between">
+              <span>DOCUMENT NAME</span>
+              {current && docName && <button className="btn" onClick={this.onSave}>Save</button>}
+            </div>
             <input placeholder="please input your docment name" value={this.state.docName} onChange={this.onNameChange} />
           </div>
           <div className="main">
@@ -95,9 +120,11 @@ class Markdown extends Component {
 export default connect(
   (state) => ({
     current: state.current,
-    docName: state.docName
+    docName: state.docName,
+    db: state.db
   }), {
     setMarkdown,
-    setDocName
+    setDocName,
+    saveDocment
   }
 )(Markdown);

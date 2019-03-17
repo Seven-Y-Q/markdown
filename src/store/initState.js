@@ -1,12 +1,16 @@
 import fs from 'fs';
+import pouchdb from 'pouchdb';
 
 const bootstrapMD = fs.readFileSync(__dirname + '/bootstrap.md', 'utf8');
 const reactMD = fs.readFileSync(__dirname + '/react.md', 'utf8');
 const vueMD = fs.readFileSync(__dirname + '/vue.md', 'utf8');
+const db = new pouchdb('Markdown');
 export default {
   current: '',
   docName: '',
   isSidebarOpen: false,
+  list: [],
+  db,
   examples: {
     Bootstrap: {
       content: bootstrapMD,

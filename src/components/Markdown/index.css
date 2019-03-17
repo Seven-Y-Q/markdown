@@ -4,7 +4,7 @@
 
 .container-fluid .main {
   display: flex;
-  height: calc(100% - 79px);
+  height: calc(100% - 99px);
 }
 
 .editor,
@@ -36,6 +36,20 @@
 
 .doc-name {
   background-color: #fff;
+}
+
+.doc-name .title {
+  display: flex;
+}
+
+.doc-name .title span {
+  line-height: 38px;
+}
+
+.doc-name .title .btn {
+  color: #fff;
+  background-color: #35d7bb;
+  outline: none;
 }
 
 .container-fluid .title {

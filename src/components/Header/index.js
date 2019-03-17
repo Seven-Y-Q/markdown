@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import Dropdown from '../Dropdown';
-import { showExample, toggleSidebar } from '../../action';
+import { showExample, toggleSidebar, getAllDocments } from '../../action';
 import './index.css';
 
 class Header extends Component {
@@ -24,7 +24,9 @@ class Header extends Component {
   }
 
   onToggle = () => {
-    this.props.toggleSidebar();
+    const { toggleSidebar, getAllDocments } = this.props;
+    toggleSidebar();
+    getAllDocments();
   }
 
   render() {
@@ -64,6 +66,7 @@ export default connect(
     isSidebarOpen: state.isSidebarOpen
   }), {
     showExample,
-    toggleSidebar
+    toggleSidebar,
+    getAllDocments
   }
 )(Header);

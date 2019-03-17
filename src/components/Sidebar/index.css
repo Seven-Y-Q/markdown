@@ -24,3 +24,31 @@
 .sidebar button:hover {
   color: #fff;
 }
+
+.sidebar-list-name {
+  background-color: #373d49;
+  padding: 20px 40px;
+  cursor: pointer;
+  color: #a0aabf;
+}
+
+.sidebar-list-name .dropdown-toggle {
+  float: right;
+}
+
+.sidebar-list {
+  color: #35d7bb;
+  margin-bottom: 10px;
+}
+
+.sidebar-list li {
+  padding: 10px 40px;
+  cursor: pointer;
+  color: #fff;
+}
+
+.sidebar-list li.active,
+.sidebar-list li:hover,
+.sidebar-list-name:hover {
+  color: #35d7bb;
+}

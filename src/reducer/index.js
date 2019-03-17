@@ -50,6 +50,19 @@ let reducer = (state = initState, action) => {
         docName: ''
       };
       break;
+    case types.SET_LIST:
+      return {
+        ...state,
+        list: action.payload
+      };
+      break;
+    case types.SELECT_EXSITING_DOC:
+      return {
+        ...state,
+        current: action.payload.content,
+        docName: action.payload.docName
+      };
+      break;
     default:
       return state;
   }
