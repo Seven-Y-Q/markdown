@@ -60,7 +60,8 @@ let reducer = (state = initState, action) => {
       return {
         ...state,
         current: action.payload.content,
-        docName: action.payload.docName
+        docName: action.payload.docName,
+        currentRev: action.payload._rev
       };
       break;
     case types.SHOW_MODAL:

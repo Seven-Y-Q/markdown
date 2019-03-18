@@ -7,6 +7,7 @@ const SET_DOC_NAME = 'SET_DOC_NAME';
 const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 const NEW_DOC = 'NEW_DOC';
 const SAVE_DOC = 'SAVE_DOC';
+const REMOVE_DOC = 'REMOVE_DOC';
 const GET_DOC = 'GET_DOC';
 const GET_ALL_DOCS = 'GET_ALL_DOCS';
 const SET_LIST = 'SET_LIST';
@@ -29,5 +30,6 @@ export default {
   SET_LIST,
   SELECT_EXSITING_DOC,
   SHOW_MODAL,
-  HIDE_MODAL
+  HIDE_MODAL,
+  REMOVE_DOC
 }

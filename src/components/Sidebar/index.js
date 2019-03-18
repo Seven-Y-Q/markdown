@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
-import { newDocment, getDocment } from '../../action';
+import { newDocment, getDocment, removeDocment } from '../../action';
 import './index.css';
 
 class Sidebar extends Component {
@@ -30,6 +30,11 @@ class Sidebar extends Component {
     this.props.getDocment({id, docName});
   }
 
+  onRemove = (id, docName) => (e) => {
+    e.stopPropagation();
+    this.props.removeDocment({id, docName});
+  }
+
   render() {
     return (
       <div className="sidebar">
@@ -38,7 +43,7 @@ class Sidebar extends Component {
           <div className="sidebar-list-name" onClick={this.onShowList}>Documents<span className="dropdown-toggle"></span></div>
           {this.state.isShowList &&
             <ul>
-              {this.props.list.map((item, index) => <li key={item.id} onClick={this.onSelectDoc(item.id, item.docName, index)} className={this.state.index === index ? 'active' : ''}>{item.docName}</li>)}
+              {this.props.list.map((item, index) => <li key={item.id} onClick={this.onSelectDoc(item.id, item.docName, index)} className={this.state.index === index ? 'active' : ''}><span>{item.docName}</span><span onClick={this.onRemove(item.id, item.docName)}>&times;</span></li>)}
             </ul>
           }
         </div>
@@ -52,5 +57,6 @@ export default connect((state) => ({
   list: state.list
 }), {
   newDocment,
-  getDocment
+  getDocment,
+  removeDocment
 })(Sidebar);

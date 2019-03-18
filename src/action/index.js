@@ -30,6 +30,11 @@ export const saveDocment = payload => ({
   payload
 });
 
+export const removeDocment = payload => ({
+  type: types.REMOVE_DOC,
+  payload
+});
+
 export const getAllDocments = payload => ({
   type: types.GET_ALL_DOCS,
   payload

@@ -47,8 +47,27 @@
   color: #fff;
 }
 
-.sidebar-list li.active,
-.sidebar-list li:hover,
+.sidebar-list li.active span:first-child,
+.sidebar-list li:hover span:first-child,
 .sidebar-list-name:hover {
   color: #35d7bb;
+}
+
+.sidebar-list li span:last-child {
+  float: right;
+  display: none;
+}
+
+.sidebar-list li:hover span:last-child {
+  display: inline-block;
+}
+
+.sidebar-list ul {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list ul,
+.sidebar-list li {
+  list-style: none;
 }

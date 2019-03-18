@@ -7,6 +7,7 @@ const vueMD = fs.readFileSync(__dirname + '/vue.md', 'utf8');
 const db = new pouchdb('Markdown');
 export default {
   current: '',
+  currentRev: '',
   docName: '',
   isSidebarOpen: false,
   list: [],
