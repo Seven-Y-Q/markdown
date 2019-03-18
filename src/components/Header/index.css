@@ -1,4 +1,9 @@
 nav.navbar-expand-lg .navbar-toggler {
     display: inline-block;
     outline: none;
+    margin-right: 1rem;
+}
+
+.nav-link {
+  cursor: pointer;
 }

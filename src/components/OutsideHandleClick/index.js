@@ -9,9 +9,6 @@ class OutsideHandleClick extends Component {
   componentDidMount() {
     window.addEventListener('click', (e) => {
       if(!this.myRef.current.contains(e.target)) {
-        // this.setState({
-        //   isShow: false
-        // });
         this.props.handleOutsideClick();
       }
     })

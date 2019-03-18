@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
 import Dropdown from '../Dropdown';
-import { showExample, toggleSidebar, getAllDocments } from '../../action';
+import { showExample, toggleSidebar, getAllDocments, showModal } from '../../action';
 import './index.css';
 
 class Header extends Component {
@@ -29,8 +29,13 @@ class Header extends Component {
     getAllDocments();
   }
 
+  showModal = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    this.props.showModal();
+  }
+
   render() {
-    console.log();
     return (
       <nav className="navbar navbar-dark bg-dark navbar-expand-lg justify-content-between">
         <button className="navbar-toggler" type="button" onClick={this.onToggle}>
@@ -41,10 +46,7 @@ class Header extends Component {
           <ul className="navbar-nav">
             <Dropdown type="link" name="Examples" options={['Bootstrap', 'React', 'Vue']} onSelect={this.onSelect} />
             <li className="nav-item">
-              <a className="nav-link" href="#">Features</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
+              <a className="nav-link" onClick={this.showModal}>Image To Base64</a>
             </li>
           </ul>
         </div>
@@ -67,6 +69,7 @@ export default connect(
   }), {
     showExample,
     toggleSidebar,
-    getAllDocments
+    getAllDocments,
+    showModal
   }
 )(Header);

@@ -7,6 +7,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Sidebar from './components/Sidebar';
 import Markdown from './components/Markdown';
 import Header from './components/Header';
+import Modal from './components/Modal';
 import store from './store';
 
 import './style.css';
@@ -16,6 +17,7 @@ class App extends React.Component {
     return (
       <Provider store={store}>
         <Fragment>
+          <Modal title="Image To Base64" />
           <Sidebar />
           <Header />
           <Markdown />

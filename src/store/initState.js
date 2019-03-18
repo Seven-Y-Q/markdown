@@ -10,6 +10,7 @@ export default {
   docName: '',
   isSidebarOpen: false,
   list: [],
+  isShowModal: false,
   db,
   examples: {
     Bootstrap: {

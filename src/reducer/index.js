@@ -63,6 +63,18 @@ let reducer = (state = initState, action) => {
         docName: action.payload.docName
       };
       break;
+    case types.SHOW_MODAL:
+      return {
+        ...state,
+        isShowModal: true
+      };
+      break;
+    case types.HIDE_MODAL:
+      return {
+        ...state,
+        isShowModal: false
+      };
+      break;
     default:
       return state;
   }

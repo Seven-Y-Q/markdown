@@ -1,0 +1,27 @@
+.modal.show {
+  display: block;
+}
+
+.modal-backdrop.fade {
+  display: none;
+}
+
+.modal-backdrop.fade.show {
+  display: block;
+}
+
+.modal-body .image {
+  border: 2px dashed #0087F7;
+  margin-bottom: 20px;
+  height: 252px;
+  text-align: center;
+}
+
+.modal-body .image img {
+  height: 100%;
+}
+
+.modal-body .information {
+  margin: 7rem 0;
+  text-align: center;
+}

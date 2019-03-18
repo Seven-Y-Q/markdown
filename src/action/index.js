@@ -39,3 +39,13 @@ export const getDocment = payload => ({
   type: types.GET_DOC,
   payload
 });
+
+export const showModal = payload => ({
+  type: types.SHOW_MODAL,
+  payload
+});
+
+export const hideModal = payload => ({
+  type: types.HIDE_MODAL,
+  payload
+});

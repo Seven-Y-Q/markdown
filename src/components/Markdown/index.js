@@ -70,24 +70,7 @@ class Markdown extends Component {
   }
 
   onSave = () => {
-
-    const { db, current, docName, saveDocment } = this.props;
     saveDocment();
-    // db.put({
-    //   _id: docName,
-    //   docName,
-    //   content: current
-    // }).then(() => {
-    //   console.log('save successfully');
-    // });
-    //
-    // db.allDocs({
-    //   include_docs: true
-    // }).then(function (result) {
-    //   console.log(result);
-    // }).catch(function (err) {
-    //   console.log(err);
-    // });
   }
 
   render() {
