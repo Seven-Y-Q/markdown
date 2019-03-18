@@ -70,7 +70,7 @@ class Markdown extends Component {
   }
 
   onSave = () => {
-    saveDocment();
+    this.props.saveDocment();
   }
 
   render() {
