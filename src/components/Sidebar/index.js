@@ -43,7 +43,7 @@ class Sidebar extends Component {
           <div className="sidebar-list-name" onClick={this.onShowList}>Documents<span className="dropdown-toggle"></span></div>
           {this.state.isShowList &&
             <ul>
-              {this.props.list.map((item, index) => <li key={item.id} onClick={this.onSelectDoc(item.id, item.docName, index)} className={this.state.index === index ? 'active' : ''}><span>{item.docName}</span><span onClick={this.onRemove(item.id, item.docName)}>&times;</span></li>)}
+              {this.props.list.map((item, index) => <li key={item.id} onClick={this.onSelectDoc(item.id, item.docName, index)} className={this.state.index === index ? 'active' : ''}><span>{item.docName}</span><span onClick={this.onRemove(item.id, item.docName)}>×</span></li>)}
             </ul>
           }
         </div>
