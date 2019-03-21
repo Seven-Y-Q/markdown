@@ -39,6 +39,9 @@ function* saveDocment() {
     doc._rev = currentRev;
   }
   let result = yield db.put(doc);
+  if (result.ok) {
+    yield put({type: types.SET_REV, payload: result});
+  }
 }
 
 function* removeDocment({ payload }) {

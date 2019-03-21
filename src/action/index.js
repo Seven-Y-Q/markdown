@@ -15,6 +15,11 @@ export const setDocName = payload => ({
   payload
 });
 
+export const setRev = payload => ({
+  type: types.SET_REV,
+  payload
+});
+
 export const toggleSidebar = payload => ({
   type: types.TOGGLE_SIDEBAR,
   payload

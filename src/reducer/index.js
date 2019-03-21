@@ -56,6 +56,12 @@ let reducer = (state = initState, action) => {
         list: action.payload
       };
       break;
+    case types.SET_REV:
+      return {
+        ...state,
+        currentRev: action.payload.rev
+      };
+      break;
     case types.SELECT_EXSITING_DOC:
       return {
         ...state,
