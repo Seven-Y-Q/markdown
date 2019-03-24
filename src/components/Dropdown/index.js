@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from "react";
+import { withRouter } from "react-router-dom";
 import OutsideHandleClick from '../OutsideHandleClick';
 
 class Dropdown extends Component {
@@ -15,6 +16,7 @@ class Dropdown extends Component {
     this.setState((prevState) => ({
       isShow: !prevState.isShow
     }));
+    this.props.history.push('/');
   }
 
   onSelect = (item) => (e) => {
@@ -46,4 +48,4 @@ class Dropdown extends Component {
   }
 }
 
-export default Dropdown;
+export default withRouter(Dropdown);

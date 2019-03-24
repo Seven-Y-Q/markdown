@@ -59,3 +59,24 @@ export const hideModal = payload => ({
   type: types.HIDE_MODAL,
   payload
 });
+
+export const getUser = payload => {
+  return ({
+    type: types.GET_SEARCH_USER,
+    payload
+  });
+}
+
+export const Loading = payload => {
+  return ({
+    type: types.LOADING,
+    payload
+  });
+}
+
+export const showResult = payload => {
+  return ({
+    type: types.SHOW_RESULT,
+    payload
+  });
+}

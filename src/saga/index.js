@@ -1,5 +1,5 @@
 import regeneratorRuntime from 'regenerator-runtime';
-import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects'
+import { call, put, takeEvery, takeLatest, select } from 'redux-saga/effects';
 import types from '../type';
 
 const getDB = (state) => state.db;
@@ -77,12 +77,30 @@ function* getDocment({ payload }) {
   yield put({type: types.SELECT_EXSITING_DOC, payload: result});
 }
 
+function* getUserAsync({ payload }) {
+  try {
+    yield put({type: types.LOADING, payload: true});
+    yield put({type: types.SHOW_RESULT, payload: false});
+    const { name } = payload;
+    const api = () => fetch(`https://api.github.com/users/${name}`);
+    const response = yield call(api);
+    const responseBody = yield response.json();
+    yield put({type: types.GET_SEARCH_USER_ASYNC, payload: responseBody});
+  } catch(error) {
+    console.log(error);
+  } finally {
+    yield put({type: types.LOADING, payload: false});
+    yield put({type: types.SHOW_RESULT, payload: true});
+  }
+}
+
 function* mySaga() {
   yield takeEvery(types.SHOW_EXAMPLE, showExample);
   yield takeEvery(types.SAVE_DOC, saveDocment);
   yield takeEvery(types.REMOVE_DOC, removeDocment);
   yield takeEvery(types.GET_ALL_DOCS, getAllDocments);
   yield takeEvery(types.GET_DOC, getDocment);
+  yield takeEvery(types.GET_SEARCH_USER, getUserAsync);
 }
 
 export default mySaga;
