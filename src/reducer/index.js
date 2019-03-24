@@ -82,6 +82,24 @@ let reducer = (state = initState, action) => {
         isShowModal: false
       };
       break;
+    case types.GET_SEARCH_USER_ASYNC:
+      return {
+        ...state,
+        user: action.payload
+      };
+      break;
+    case types.SHOW_RESULT:
+      return {
+        ...state,
+        showResult: action.payload
+      };
+      break;
+    case types.LOADING:
+      return {
+        ...state,
+        loading: action.payload
+      };
+      break;
     default:
       return state;
   }

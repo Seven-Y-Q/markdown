@@ -1,0 +1,12 @@
+.search-wrap {
+  background-color: #fff;
+  overflow: hidden;
+}
+.card-wrap {
+  width: 24rem;
+}
+.card-img-top {
+  width: 320px;
+  height: 320px;
+  margin: 0 auto;
+}

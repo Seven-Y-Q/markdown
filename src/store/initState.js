@@ -26,5 +26,8 @@ export default {
       content: vueMD,
       name: 'vueMD.md'
     }
-  }
+  },
+  user: null,
+  loading: false,
+  showResult: false
 }

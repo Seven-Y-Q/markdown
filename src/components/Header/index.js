@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { connect } from 'react-redux';
+import { Link, withRouter } from "react-router-dom";
 import Dropdown from '../Dropdown';
 import { showExample, toggleSidebar, getAllDocments, showModal } from '../../action';
 import './index.css';
@@ -12,6 +13,7 @@ class Header extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.isSidebarOpen !== this.props.isSidebarOpen) {
       document.querySelector('#app').classList.toggle('open-sidebar');
+      this.props.history.push('/');
     }
   }
 
@@ -41,12 +43,15 @@ class Header extends Component {
         <button className="navbar-toggler" type="button" onClick={this.onToggle}>
           <span className="navbar-toggler-icon"></span>
         </button>
-        <a className="navbar-brand" href="#">Markdown</a>
+        <Link className="navbar-brand" to="/">Markdown</Link>
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
             <Dropdown type="link" name="Examples" options={['Bootstrap', 'React', 'Vue']} onSelect={this.onSelect} />
             <li className="nav-item">
               <a className="nav-link" onClick={this.showModal}>Image To Base64</a>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="search-user">Search user</Link>
             </li>
           </ul>
         </div>
@@ -62,7 +67,7 @@ class Header extends Component {
   }
 }
 
-export default connect(
+export default withRouter(connect(
   (state) => ({
     current: state.current,
     isSidebarOpen: state.isSidebarOpen
@@ -72,4 +77,4 @@ export default connect(
     getAllDocments,
     showModal
   }
-)(Header);
+)(Header));
